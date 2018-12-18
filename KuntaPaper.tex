@@ -1,5 +1,6 @@
 \documentclass[12pt, titlepage, twocolumn]{report}
 
+
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
@@ -22,15 +23,15 @@
 \geometry{a4paper, portrait, margin=1.5in}
 \usepackage[utf8]{inputenc}
 \newtheorem{theorem}{Theorem}
-\usepackage[english]{babel}
-\usepackage{minted}
-\usemintedstyle{colorful}
+\usepackage[draft]{minted}
+%\usemintedstyle{colorful}
 \usepackage{listings}
-\usepackage{color}
+%\usepackage{color}
 \definecolor{lightgray}{rgb}{.9,.9,.9}
 \definecolor{darkgray}{rgb}{.4,.4,.4}
 \definecolor{idk1}{rgb}{.4,.6,.8}
 \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
 
 \lstdefinelanguage{js}{
   keywords={import, Blockchain, Consensus, Root, Mechanism},
@@ -44,9 +45,7 @@
   comment=[l]{//},
   morecomment=[s]{/*}{*/},
   commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
+  stringstyle=\color{red}\ttfamily
 }
 
 \lstset{
@@ -57,14 +56,13 @@
    showspaces=false,
    tabsize=2,
    breaklines=true,
-   showtabs=false,
-   numbers=false,
+   showtabs=false
 }
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
-\graphicspath{ {images/} }
+\graphicspath{ {./images/} }
 
 \titleformat{\section}
 {\normalfont\scshape\centering}{\thesection}{1em}{}
@@ -140,7 +138,7 @@
 \Large
 \begin{center}
 \texttt{The Kunta Project} \\
-\texttt{\boldtf{[v0.0.1]}}
+\texttt{[v0.0.1]}
 \end{center}
 }
  
@@ -151,7 +149,7 @@
 \section*{Abstract}
 \noindent
 
-Purposely modular, this protocol enables customization of several protocol properties, including the consensus properties implemented, blockchain type, the roots used, virtual machine opcodes, among others. These modules enable implementing parties to control the behavior of their economy, with a minimal amount of effort, and no sacrifice in participant cryptoeconomic quality. This work also demonstrates the simplification of the developer experience by abstracting away all technological details, except basic CRUD-based operations, using various programming languages. We demonstrate the mechanism design approach taken, and formalize a process for deploying populations of blockchain economies at scale. The framework shown includes adequate tooling for simulation, development, deployment, maintenance, and analytic-based decision making. Lastly, we introduce an expressive programming language for the purpose of creating, and interacting with the cryptoeconomy designed by the implementing developer.
+Purposely modular, this protocol enables customization of several protocol properties, including the consensus properties implemented, blockchain type, the roots used, and virtual machine opcodes, among others. These modules enable implementing parties to control the behavior of their economy, with a minimal amount of effort, and no sacrifice in participant cryptoeconomic quality. This work also demonstrates the simplification of the developer experience by abstracting away all technological details, except basic CRUD-based operations, using various programming languages. We demonstrate the mechanism design approach taken, and formalize a process for deploying populations of blockchain economies at scale. The framework shown includes adequate tooling for simulation, development, deployment, maintenance, and analytic-based decision making. Lastly, we introduce an expressive programming language for the purpose of creating, and interacting with the cryptoeconomy designed by the implementing developer.
 
 \end{titlepage}
 
@@ -172,19 +170,17 @@ Though not exclusively the case, the state of the present for this blockchain st
 
 At the time of writing, the standard blockchain protocols and platforms consist of a single designed protocol, upon which one can either deploy a blockchain application, or a private, and dedicated blockchain network -- these protocols address the usability of implementations using blockchain. Developers can create "smart contracts", but this level of development does not include customization of the behaviors of the protocol itself. Developing "smart contracts" is in the service of including additional computations within a blockchain -- not holistically customizing and dictating which computations happen within the chain fundamentally. 
 
-Today, there lacks simplified developer experiences, of which lead to third party wrappers around the protocol to fill these gaps. Cloud computing companies are beginning to offer abstraction layers around protocols as an attempt to offer "enterprise" blockchain solutions. These endeavors still do not offer customization opportunities regarding the protocol.
-
-Number of applications where you truly need borderless global censorship resistant neutral platform to establish trust and immutability that cannot be attacked, or compromised by anyone, is not many. However, for the developers who seek it, developer experience should be taken with the highest priority.
+Today, there lacks simplified developer experiences, of which lead to third party wrappers around the protocol to fill these gaps. Cloud computing companies are beginning to offer abstraction layers around protocols as an attempt to offer "enterprise" blockchain solutions. These endeavors still do not offer customization opportunities regarding the protocol. Only A small number of applications where you truly need borderless global censorship resistant neutral platform to establish trust and immutability that cannot be attacked, or compromised by anyone, is not many. However, for the developers who seek it, developer experience should be taken with the highest priority.
 
 By relieving the brain of all unnecessary work, a good abstraction sets us free to concentrate on more advanced problems, and in effect increases the mental power of the participants. It is the democratization of decentralized technologies that is the long-term goal of this project -- not the simple data structure, and concept blockchains are built upon.
 
 \begin{quotation}
-"There is no room for \(\texttt{\boldtf{Tribalism}}\), when the mission is democratization"
-\end{quation}
+There is no room for \(\texttt{Tribalism}\) when the mission is democratization
+\end{quotation}
 
 \begin{figure}[ht]
-\begin{flushright}
-	\includegraphics[width=0.2\textwidth]{sig}	
+	\begin{flushright}
+		\includegraphics[width=0.10\textwidth]{signature.png}	
 	\end{flushright}
 \end{figure}
 
@@ -499,7 +495,7 @@ Comparatively, any "external" developer(s) (a developer not existing within the 
 
 \section{Code Complexity}
 
-The Curse of Code Complexity (\boldtf{CoCC}) claims that higher skill-levels are required by any developer looking to take advantage of a complicated, but open-sourced code base. OSS (Open Sourced Software) is built around transparency of code. The more complexed the code base is for a project, the higher the knowledge requirement is for any developer seeking to make changes to it. Blockchain protocols already introduce complexed ideas, and concepts for many developers to deeply comprehend at the time of writing. Adding to that existing complexity is not conducive to developers looking to experiment with cryptoeconomic development as the learning curve can become steeper than necessary.
+The Curse of Code Complexity (\textbf{CoCC}) claims that higher skill-levels are required by any developer looking to take advantage of a complicated, but open-sourced code base. OSS (Open Sourced Software) is built around transparency of code. The more complexed the code base is for a project, the higher the knowledge requirement is for any developer seeking to make changes to it. Blockchain protocols already introduce complexed ideas, and concepts for many developers to deeply comprehend at the time of writing. Adding to that existing complexity is not conducive to developers looking to experiment with cryptoeconomic development as the learning curve can become steeper than necessary.
 
 To develop a customizable cryptoeconomic protocol from an existing project isn't ideal for the average developer for the following reasons:
 	
@@ -534,7 +530,7 @@ In formal notation, we write
 
 where \(Z\) is the outcome space. In economic models, the outcome space is usually a vector space, but we can take the space of outcomes to be \(Z \in \mathbb{R}\).
 
-A mechanism \(\boldsymol{\pi}\) can also be viewed as a process for message exchange. In equilibrium form, consists of three component,
+A mechanism \(\boldsymbol{\pi}\) can also be viewed as a process for message exchange. In equilibrium form, consists of three component,
 
 \begin{enumerate}
 	\item message space, \(M\)
@@ -542,9 +538,9 @@ A mechanism \(\boldsymol{\pi}\) can also be viewed as a process for message exch
 	\item outcome function \(h\), \(h : M \rightarrow Z\)
 \end{enumerate}
 
-Let \(\boldsymol{\pi} = (M, \mu, h)\). The message space, \(M\) consists of messages available for exchange. We take the message space to be of finite dimensions in Euclidean space. The group equilibrium message correspondence, \(\mu\), holds a relation between an environment, \(\theta\), and the set of messages, \(\mu(\theta)\), that are equilibrium or stationary messages for all agents. These are messages each participant deems as acceptable when the environment is \(\theta\).
+Let \(\boldsymbol{\pi} = (M, \mu, h)\). The message space, \(M\) consists of messages available for exchange. We take the message space to be of finite dimensions in Euclidean space. The group equilibrium message correspondence, \(\mu\), holds a relation between an environment, \(\theta\), and the set of messages, \(\mu(\theta)\), that are equilibrium or stationary messages for all agents. These are messages each participant deems as acceptable when the environment is \(\theta\).
 
-The outcome function maps messages into outcomes. Thus, the mechanism \(\boldsymol{\pi} = (M, \mu, h)\) when operated in an environment \(\theta\) leads to the outcomes \(h(\mu(\theta))\) in \(Z\). The mechanism can be deterministic, and reliably output the same decision and payout, or can be probabilistic/stochastic according to some criteria.
+The outcome function maps messages into outcomes. Thus, the mechanism \(\boldsymbol{\pi} = (M, \mu, h)\) when operated in an environment \(\theta\) leads to the outcomes \(h(\mu(\theta))\) in \(Z\). The mechanism can be deterministic, and reliably output the same decision and payout, or can be probabilistic/stochastic according to some criteria.
 
 
 The goal of mechanism design is to generate a mechanism that incentivizes rational participants to perform specific behavior, based upon their private information, thus leading to socially desirable outcomes. A mechanism is said to "implement" a social choice function if, in equilibrium, the mapping from types to outcomes is the same as the mapping that is to be chosen by the social choice function. 
@@ -596,10 +592,10 @@ This concretely ensures the winner only pays the amount they bid.
 Due to the Revelation principle, we can strictly represent Incentive Compatible (IC) mechanisms as defined through game theory-based mechanism design. 
 
 \subsubsection{Notation}
-We write a mechanism as, also as \(\boldsymol{\pi}\), depending on the text.
+We write a mechanism as, also as \(\boldsymbol{\pi}\), depending on the text.
 
 \begin{equation}
-M = \boldsymol{\pi} = (f, p_1, \ldots, p_n)
+M = \boldsymbol{\pi} = (f, p_1, \ldots, p_n)
 \end{equation}
 
 we define a social choice function as,
@@ -656,7 +652,7 @@ By \(M\) optimizing for each player, \(i\), the mechanism further ensure no ince
 \subsubsection{IC Definition}
 Dominant strategy incentive compatible means that a participant reporting their true type, or bidder submitting their true bid, is a dominant strategy. If a participant provides their true type, they are guaranteed non negative utility by the mechanism used.
 
-A mechanism \((f, p_1, \ldots , p_n)\) is called IC if for every player, \( \forall i \), every \(v_1 \in v_1, \ldots , v_n \in V_n \) and every \(  v_{i}{'} \in V_i \), if we denote \(a = f(v_i,v_{-i})\) and \(a_{}{'} = f(v_{i}{'},v_{-i})\), then \(v_i(a) - p_i(v_i,v_{-i}) \geq v_i(a_{}{'} - p_i(v_{i}{'},v_{-i})\) \cite{ICM}.
+A mechanism \((f, p_1, \ldots , p_n)\) is called IC if for every player, \( \forall i \), every \(v_1 \in v_1, \ldots , v_n \in V_n \) and every \(  v_{i}{'} \in V_i \), if we denote \(a = f(v_i,v_{-i})\) and \(a_{}{'} = f(v_{i}{'},v_{-i})\), then \(v_i(a) - p_i(v_i,v_{-i}) \geq v_i(a_{}{'}) - p_i(v_{i}{'},v_{-i})\) \cite{DEM} \cite{AGT} \cite{ICM}.
 
 
 \subsubsection{Exploiting Mechanisms}
@@ -666,7 +662,7 @@ The proposed system treats Mechanism as first class citizens, and enables develo
 For example a simple Proof-of -Work (PoW)-style mechanism can be designed by implementing a mechanism that accepts a Nonce as input, and returns a boolean decision ("accept" or "reject"). Next we would build a mechanism regarding longest chain wins, and the actions taken after receiving a Nonce from another node, etc. Participants simply must invoke the overall mechanism to retrieve a result from its parts. To implement PoW-style consensus, we experimentally expose other data types, such as a "Puzzle". Puzzles allow developers to create arbitrary computations that accept solutions from participants. For simple PoW, with \(z_L\) being the number of leading zeros required, or "target value", that the resulting solution hash \(s_{hash}\) must be lower than, the puzzle is:
 
 \begin{equation}
-	\texttt{substring(\(s_{hash}\(, \(0\), \(z_L\)) = } "0 \ldots 0"
+	\texttt{substring}(s_{hash}, 0, z_L) =  "0 \ldots 0"
 \end{equation}
 
 For every solution submitted, the protocol can check whether or not this Puzzle has been solved by the candidate input. These are examples of the application of mechanism design to the actual design of decentralized economies. The platform discussed supports experimentation with creating mechanisms. Current platform that enable "smart contract" allow developers to already create mechanisms. The proposed system allows developers to design all mechanisms in the system, and not simply an additional mechanism atop several others -- to construct decentralized systems using mechanisms as foundation.
@@ -810,7 +806,7 @@ The three layers of customization we focus on are:
 Therefore any chain created must be characterized by the cartesian product,
 
 \begin{equation}
-	\texttt{Create} : \item \texttt{A} \times \texttt{B} \times \texttt{V} \rightarrow \boldsymbol{\mathcal{B}}
+	\texttt{Create} : \texttt{A} \times \texttt{B} \times \texttt{V} \rightarrow \boldsymbol{\mathcal{B}}
 \end{equation}
 
 The overall goal of the protocol is to satisfy the relation,
@@ -979,7 +975,7 @@ For \(\gamma_m\), we define an invocation function \(\Theta\)
 (\boldsymbol{\sigma}', z, \boldsymbol{o}) \equiv \Theta(\boldsymbol{\sigma}, \gamma_m, s, o, r, c, \mathbf{d})
 \end{equation}
 
-where \(z\) is the receipt of \(\gamma\), \(\mathbf{o}\) is the result of \(\gamma\), \(s\) is the sender of the root instance, \(o\) is the originating account of the partner \(\gamma_f\) root instance, \(r\) is the receiving/targeted account \(a\), usually the hash of the partnered root instance, \(\boldsymbol{\texttt{H}}\)(\gamma_f)\), \(c\) is the code in the root instance, and \mathbf{d} is additional data. Similar to \(\gamma_f\), we can add depth by utilizing substate between root instance executions.
+where \(z\) is the receipt of \(\gamma\), \(\mathbf{o}\) is the result of \(\gamma\), \(s\) is the sender of the root instance, \(o\) is the originating account of the partner \(\gamma_f\) root instance, \(r\) is the receiving/targeted account \(a\), usually the hash of the partnered root instance, \(\boldsymbol{\texttt{H}}(\gamma_f)\), \(c\) is the code in the root instance, and \(\mathbf{d}\) is additional data. Similar to \(\gamma_f\), we can add depth by utilizing substate between root instance executions.
 
 
 \subsection{Aspects}
@@ -1064,13 +1060,13 @@ With Ethereum, the default state of the system is to accept any smart contract s
 As a consequence, developers must be concerned when deploying a permissionless, public blockchain. This is because nefarious actors can always submit any transaction they can imagine, with little consequences beyond the resources paid to submit the transaction to the network.
 
 \begin{enumerate}
-	\item \texttt{\boldtf{SDMP}}: Single Design Multi-Purpose 
-	\item \texttt{\boldtf{FDSP}}: Flexible Design Single Purpose
+	\item \texttt{\textbf{SDMP}}: Single Design Multi-Purpose 
+	\item \texttt{\textbf{FDSP}}: Flexible Design Single Purpose
 \end{enumerate}
 
-A \texttt{\boldtf{SDMP}} is a protocol that is designed to be multipurpose and general, and the amount of "supported" computation types, and "acceptable" computation types tends towards \(\infty\). These protocol types have one specific design, but users are encouraged to use the protocol "as-is". 
+A \texttt{\textbf{SDMP}} is a protocol that is designed to be multipurpose and general, and the amount of "supported" computation types, and "acceptable" computation types tends towards \(\infty\). These protocol types have one specific design, but users are encouraged to use the protocol "as-is". 
 
-With an \texttt{\boldtf{FDSP}} protocol, the "supported" computation types also tends towards \(\infty\), but is bounded above by the implementing developer. This means developers choose what computation are allowed to take place on the network.
+With an \texttt{\textbf{FDSP}} protocol, the "supported" computation types also tends towards \(\infty\), but is bounded above by the implementing developer. This means developers choose what computation are allowed to take place on the network.
 
 This system proposes a concept called "smart contract templating" where implementing developers can specify the structure of all transactions intended to be accepted, and computed upon within the network. 
 
@@ -1107,7 +1103,7 @@ The attack surface of a system is the sum of the various points where an unautho
 in other words,
 
 \begin{equation}
-	\item \mathcal{R}(\mathcal{A}) \rightarrow \vert\mathcal{S}(\mathcal{A})\vert  = \vert\mathcal{S}(\mathcal{A})\vert - \epsilon	
+	\mathcal{R}(\mathcal{A}) \rightarrow \vert\mathcal{S}(\mathcal{A})\vert  = \vert\mathcal{S}(\mathcal{A})\vert - \epsilon	
 \end{equation}
 
 where \(\epsilon\) is the number of computations no longer accepted after restriction. It is not the language that provides a smaller attack surface, it is the result of designing a purpose-built blockchain that accepts a subset of all turing-acceptable computations that yields a smaller attack surface.
@@ -1134,7 +1130,7 @@ We also assume restricting inputs to \(\mathcal{A}\) do not result in more attac
 	\label{3_networks}
 \end{figure*}
 
-A graph database is any storage system that provides \boldtf{index-free adjacency}. We use an ordered key-value store for root instance relationship storage, and propose its use for any relational data to be extracted from a chain. By using hexastores as the fundamental data store for each , we can further optimize relationship queries.
+A graph database is any storage system that provides \textbf{index-free adjacency}. We use an ordered key-value store for root instance relationship storage, and propose its use for any relational data to be extracted from a chain. By using hexastores as the fundamental data store for each , we can further optimize relationship queries.
 
 Current protocols make use of external, but node-local storage to retrieve context, and additional information regarding the state of the world. This is a common practice across protocols, so we purpose local storage for strategic technological advantages. In the case of relationship-based querying upon a given \(\boldsymbol{\mathcal{B}}\), a Graph model provides specific benefits, but is not necessary for operation, and should be ultimately left up the designer of the protocol.
 
@@ -1147,19 +1143,19 @@ When importing data into a graph database, the relationships are treated with as
 We make use of the Subject \(S\), Predicate \(P\), Object triple store. This can be generalized to include n-tuple stores. \(S,P, and O\) are configurable in more advanced settings. Initially, we make use of the following predicates for proof-of-concept:
 
 \begin{enumerate}
-	\item \texttt{\boldtf{Targeted}}
+	\item \texttt{\textbf{Targeted}}
 	\begin{enumerate}
 		\item Involves a transaction's "to" field. If Alice sends value to Bob, \(A \rightarrow Targeted \rightarrow B\) is the graph entry
 	\end{enumerate}
-	\item \texttt{\boldtf{Created}}
+	\item \texttt{\textbf{Created}}
 	\begin{enumerate}
 		\item Refers to the causer of the transaction, or the from field, \(A \rightarrow Created \rightarrow T\)
 	\end{enumerate}
-	\item \texttt{\boldtf{StoredIn}}
+	\item \texttt{\textbf{StoredIn}}
 	\begin{enumerate}
 		\item  Uses the transaction hash as the subject, and the block number as the object, \(\texttt{H}(T) \rightarrow StoredIn \rightarrow B_{number}\)
 	\end{enumerate}
-	\item \texttt{\boldtf{Mined}}
+	\item \texttt{\textbf{Mined}}
 	\begin{enumerate}
 		\item \(Mined(T)\) , reflects what node mined the block containing the transaction T, \(Node_1 \rightarrow Mined \rightarrow B_{number}\)
 	\end{enumerate}
@@ -1182,10 +1178,9 @@ For any Search function, on any graph, \(\mathcal{G}\) , we simply use \(\texttt
 \begin{equation}
 	\texttt{search}(\mathcal{G}, T) \equiv
 	\begin{cases}
-	\texttt{true} & \text{if } T \in \mathcal{G} \\
-	\texttt{false} & \texttt{otherwise}
+		\texttt{true} & \texttt{if } T \in \mathcal{G} \\
+		\texttt{false} & \texttt{otherwise}
 	\end{cases}
-	
 \end{equation}
 
 
@@ -1196,7 +1191,7 @@ For example, if we want to determine the average block time for a given \( \bold
 
 
 \begin{equation}
-	{\frac{\Sigma_{1}^{j} }_{\vert \mathcal{J} \vert}} , \forall j \in \mathcal{J} , j \equiv b_{j+1_{t}} - b_{j_{t}}
+	\frac{\Sigma_{1}^{j} }{\vert \mathcal{J} \vert} , \forall j \in \mathcal{J} , j \equiv b_{j+1_{t}} - b_{j_{t}}
 \end{equation}
 
 Through the Analytic Engine, and programming language, we expose many estimators for the purpose of decision making for developers.
@@ -1363,7 +1358,7 @@ Mechanism proof_of_work{
 \label{code:5}
 \end{listing}
 
-By applying the mechanism to the chain configuration, we put it to use. However, in addition to the fundamental consensus property of the chain, we can also define, a additional rule.
+By applying the mechanism to the chain configuration, we put it to use. However, in addition to the fundamental consensus property of the chain, we can also define, a additional rule. Each mechanism has native methods, each triggered at different times. For example, the \(\texttt{Execute}\) method is invoked every time the mechanism is invoked.
 
 \begin{listing}[ht]
 \begin{minipage}{\linewidth}
@@ -1371,15 +1366,16 @@ By applying the mechanism to the chain configuration, we put it to use. However,
 Mechanism say_hello{
 	Execute(){
 		log("hello");
+		...
 	}
 }
 \end{lstlisting}
 \end{minipage}
-\caption{A native mechanism \(\texttt{say_hello}\)}
+\caption{A native mechanism example with a triggered function}
 \label{code:6}
 \end{listing}
 
-The \(\texttt{Execute}\) function is native, and is invoked on when the mechanism is executed; this can too be configured.
+The \(\texttt{Execute}\) function is native, and is invoked on when the mechanism is executed; this too can be configured.
 
 \subsubsection{Mechanism Function Types}
 Each mechanism can implement several functions to accomplish various goals. 
@@ -1399,7 +1395,7 @@ Mechanism ScalarCompare{
 \end{lstlisting}
 \end{minipage}
 \caption{Mechanism for ScalarCompare}
-\label{code:6}
+\label{code:7}
 \end{listing}
 
 With these paradigms, developers can build several custom mechanisms into their deployed protocol specification.
@@ -1422,7 +1418,7 @@ func OnNewBlock(...){
 \end{lstlisting}
 \end{minipage}
 \caption{Chain function for \(\texttt{OnNewBlock}\)}
-\label{code:6}
+\label{code:8}
 \end{listing}
 
 is invoked upon every new block created in the network. Each node runs this function if they create a new block. Other native functions include, but are not limited to,
@@ -1541,7 +1537,7 @@ For developers of whom want control over every aspect of the protocol's design, 
 \bibitem{BTC}Nakamoto, Satoshi \\
 Bitcoin: A Peer-to-Peer Electronic Cash System
 
-\bibitem {ICM} Arne Hillebrand, Denise T?onissen \\
+\bibitem{ICM} Arne Hillebrand, Denise T?onissen \\
 Incentive Compatible Mechanisms \\ 
 Characterizations of IC Mechanisms
 
