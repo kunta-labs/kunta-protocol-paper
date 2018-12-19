@@ -138,6 +138,7 @@
 \Large
 \begin{center}
 \texttt{The Kunta Project} \\
+\texttt{Jovonni L. Pharr} \\
 \texttt{[v0.0.1]}
 \end{center}
 }
@@ -1494,7 +1495,7 @@ With systems built upon arbitrary blockchain designs, they face the difficult ch
 To rollover an existing chain onto a new version of the same chain, we store a copy of the old chain, locally or remote, and hash its contents, \(\texttt{H}(\boldsymbol{\mathcal{B}})\). We then include the hash of the previous version's Blockchain into the genesis block of the new version. To hash a small chain, you can directly hash the chain as a single data structure. However, for larger chains, it depends on how the chain is stored. For a chain stored by several files on a system, we can hash each file, and construct a tree, finally hashing it's root. This serves as the same "proof" of existence at the time of hashing.
 
 
-\section{Transations per second}
+\section{Transactions per second}
 To alter transaction per second, we can, among other things, decrease block mine/forge time, or decrease block size. What a network can achieve depends on several aspects. First generation blockchain systems are constrained at the network level because a large part of the network participates in transactions; this is different from the capacity of a single node. If the network is viewed as a graph, \(\mathcal{G}\), the diameter of the network influences how information propagates within it. For a single transaction, the amount of time it takes to span all nodes from inception to finality also influences this.
 
 
